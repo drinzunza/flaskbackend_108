@@ -1,3 +1,6 @@
+import pymongo
+import certifi
+
 developer = {
     "first": "Sergio",
     "last": "Inzunza",
@@ -15,3 +18,5 @@ developer = {
 
 
 con_str = "mongodb+srv://ch40:Test1234@cluster0.uhdn1af.mongodb.net/?retryWrites=true&w=majority"
+client = pymongo.MongoClient(con_str, tlsCAFile=certifi.where())
+db = client.get_database("organika")
